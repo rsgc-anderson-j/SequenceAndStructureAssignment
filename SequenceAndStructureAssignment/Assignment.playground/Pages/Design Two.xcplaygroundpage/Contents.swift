@@ -25,6 +25,8 @@ let canvas = Canvas(width: 500, height: 500)
 // Generate a grid
 canvas.drawShapesWithFill = false
 canvas.defaultBorderWidth = 1
+let number = random(from: 0, toButNotIncluding: 2)
+canvas.defaultLineWidth = 1
 
 // This loop makes a 10 rows of columns
 for x in stride(from: 25, through: 475, by: 50){
@@ -37,20 +39,25 @@ for x in stride(from: 25, through: 475, by: 50){
         canvas.drawRectangle(centreX: x, centreY: y, width: 50, height: 50)
     }
 }
+
+for x in stride(from: 0, through: 400, by: 10) {
+    
+    canvas.borderColor = Color.init(hue: 324, saturation: 100, brightness: 100, alpha: 100)
+    canvas.drawEllipse(centreX: 250, centreY: 250, width: x, height: x, borderWidth: 1)
+}
 //draw lines
 
-canvas.defaultLineWidth = 1
+
 
 // use a loop for rays
 for x in stride(from: 350, through: 500, by: 10){
     
-    if x % 100 == 0{
+    if number == 1 {
         canvas.lineColor = Color.init(hue: 332, saturation: 100, brightness: 100, alpha: 100)
-    }    else {
-         canvas.lineColor = Color.init(hue: 110, saturation: 100, brightness: 100, alpha: 100)
+    }    else if number == 0 {
+        canvas.lineColor = Color.init(hue: 110, saturation: 100, brightness: 100, alpha: 100)
     }
-
-    //draw the line rays
+//draw the line rays
     canvas.drawLine(fromX: 0, fromY: 500, toX: x, toY: 0)
 }
 
@@ -63,9 +70,35 @@ for y in stride(from: 0, through: 150, by: 10) {
         canvas.lineColor = Color.purple
     }
     
-    //draw the sun rays
+    //draw the rays
     canvas.drawLine(fromX: 0, fromY: 500, toX: 500, toY: y)
 }
+
+//loop for lines going from bottom left to top right
+for x in stride(from: 0, through: 150, by: 10) {
+    
+    //Choose the color
+    if x % 100 == 0 {
+        canvas.lineColor = Color.init(hue: 92, saturation: 84, brightness: 100, alpha: 100)
+    } else {
+        canvas.lineColor = Color.init(hue: 272, saturation: 84, brightness: 100, alpha: 100)
+    }
+
+    canvas.drawLine(fromX: 500, fromY: 500, toX: x, toY: 0)
+
+}
+
+for y in stride(from: 0, through: 150, by: 10){
+    //Choose the color
+    if y % 25 == 0 {
+        canvas.lineColor = Color.blue
+    } else {
+        canvas.lineColor = Color.red
+    }
+canvas.drawLine(fromX: 500, fromY: 500, toX: 0, toY: y)
+}
+
+canvas.copyToClipboard()
 
 /*:
  ## Template code
