@@ -42,25 +42,33 @@ for x in stride(from: 25, through: 475, by: 50){
 
 for x in stride(from: 0, through: 400, by: 10) {
     
-    canvas.borderColor = Color.init(hue: 324, saturation: 100, brightness: 100, alpha: 100)
+    canvas.borderColor = Color.init(hue: 0, saturation: 100, brightness: 100, alpha: 100)
     canvas.drawEllipse(centreX: 250, centreY: 250, width: x, height: x, borderWidth: 1)
 }
+
+
 //draw lines
 
-
-
 // use a loop for rays
-for x in stride(from: 350, through: 500, by: 10){
+for x in stride(from: 350, through: 500, by: 20){
     
-    if number == 1 {
+    
         canvas.lineColor = Color.init(hue: 332, saturation: 100, brightness: 100, alpha: 100)
-    }    else if number == 0 {
-        canvas.lineColor = Color.init(hue: 110, saturation: 100, brightness: 100, alpha: 100)
-    }
+    
 //draw the line rays
     canvas.drawLine(fromX: 0, fromY: 500, toX: x, toY: 0)
 }
 
+for x in stride(from: 360, through: 500, by: 20){
+    
+    
+     canvas.lineColor = Color.init(hue: 110, saturation: 100, brightness: 100, alpha: 100)
+    
+    //draw the line rays
+    canvas.drawLine(fromX: 0, fromY: 500, toX: x, toY: 0)
+}
+
+// draws lines from top left y to bottom right y
 for y in stride(from: 0, through: 150, by: 10) {
     
     //Choose the color
@@ -75,19 +83,22 @@ for y in stride(from: 0, through: 150, by: 10) {
 }
 
 //loop for lines going from bottom left to top right
-for x in stride(from: 0, through: 150, by: 10) {
+for x in stride(from: 0, through: 150, by: 20) {
     
-    //Choose the color
-    if x % 100 == 0 {
         canvas.lineColor = Color.init(hue: 92, saturation: 84, brightness: 100, alpha: 100)
-    } else {
-        canvas.lineColor = Color.init(hue: 272, saturation: 84, brightness: 100, alpha: 100)
-    }
 
-    canvas.drawLine(fromX: 500, fromY: 500, toX: x, toY: 0)
+canvas.drawLine(fromX: 500, fromY: 500, toX: x, toY: 0)
 
 }
+for x in stride(from: 10, through: 150, by: 20) {
+    
+    canvas.lineColor = Color.init(hue: 272, saturation: 84, brightness: 100, alpha: 100)
 
+    
+    canvas.drawLine(fromX: 500, fromY: 500, toX: x, toY: 0)
+    
+}
+// this draws the lines forom the top right Y to bottom left y
 for y in stride(from: 0, through: 150, by: 10){
     //Choose the color
     if y % 25 == 0 {
